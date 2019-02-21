@@ -387,7 +387,7 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
     activityView.alpha = 0.0;
     activityView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
     activityView.layer.cornerRadius = style.cornerRadius;
-    
+
     if (style.displayShadow) {
         activityView.layer.shadowColor = style.shadowColor.CGColor;
         activityView.layer.shadowOpacity = style.shadowOpacity;
@@ -399,7 +399,8 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
     activityIndicatorView.center = CGPointMake(activityView.bounds.size.width / 2, activityView.bounds.size.height / 2);
     [activityView addSubview:activityIndicatorView];
     [activityIndicatorView startAnimating];
-    
+    UIColor *tintColor = [UIColor colorWithRed:255.f / 255.f green:167.f / 255.f blue:0.f / 255.f alpha:1.0];
+    [activityIndicatorView setColor:tintColor];
     // associate the activity view with self
     objc_setAssociatedObject (self, &CSToastActivityViewKey, activityView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
